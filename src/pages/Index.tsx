@@ -1,17 +1,13 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Linkedin, Github, Code, Briefcase, User, ArrowDown } from "lucide-react";
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
   const skills = {
     "Web Development": ["Django (MVT architecture)", "HTML", "CSS", "JavaScript"],
     "Programming Languages": ["Python", "Java"],
@@ -19,59 +15,42 @@ const Index = () => {
     "Cloud Technologies": ["Azure Storage"],
     "Other": ["Blockchain", "Location-based Services"]
   };
-
-  const projects = [
-    {
-      title: "AgriHub - Smart Agriculture Resource Portal",
-      description: "Designed and developed a decentralized platform using blockchain technology to ensure transparent and tamper-proof transactions between farmers, agri-experts, suppliers, and buyers. The system includes crop recommendations, weather insights, and peer-to-peer exchange of resources—promoting smart, secure, and sustainable farming practices.",
-      technologies: ["Blockchain", "Web Development", "Smart Contracts"]
-    },
-    {
-      title: "Classroom Material Distribution Platform",
-      description: "Developed a web application to facilitate buying and selling of study materials among students, streamlining academic resource sharing and promoting sustainability.",
-      technologies: ["Django", "Web Development", "Database Management"]
-    },
-    {
-      title: "EV Charging Station Slot Booking Website",
-      description: "Built a user-friendly website that enables EV users to book charging slots in advance, helping them avoid long queues and save time. The system enhances convenience and efficiency in EV station usage.",
-      technologies: ["Web Development", "Booking System", "User Experience"]
-    },
-    {
-      title: "On-Road Assistance Platform",
-      description: "Created a real-time service platform where users can request nearby assistance such as fuel delivery or mechanical support. Integrated location-based services for faster response and convenience.",
-      technologies: ["Location Services", "Real-time Systems", "Mobile Development"]
-    }
-  ];
-
-  const experiences = [
-    {
-      company: "Ziuke Infotech",
-      position: "Django Developer Intern",
-      duration: "Jan 2025 - Feb 2025",
-      location: "Thrissur",
-      responsibilities: [
-        "Developed scalable web applications using Django",
-        "Worked with Django's Model-View-Template architecture for efficient web development"
-      ]
-    },
-    {
-      company: "Gem Advertising and Publications",
-      position: "IT Support",
-      duration: "Mar 2024",
-      location: "Qatar",
-      responsibilities: [
-        "Provided support to the IT team, primarily in design, printing, networking, and website development",
-        "Developed a comprehensive understanding of international markets and business practices"
-      ]
-    }
-  ];
-
+  const projects = [{
+    title: "AgriHub - Smart Agriculture Resource Portal",
+    description: "Designed and developed a decentralized platform using blockchain technology to ensure transparent and tamper-proof transactions between farmers, agri-experts, suppliers, and buyers. The system includes crop recommendations, weather insights, and peer-to-peer exchange of resources—promoting smart, secure, and sustainable farming practices.",
+    technologies: ["Blockchain", "Web Development", "Smart Contracts"]
+  }, {
+    title: "Classroom Material Distribution Platform",
+    description: "Developed a web application to facilitate buying and selling of study materials among students, streamlining academic resource sharing and promoting sustainability.",
+    technologies: ["Django", "Web Development", "Database Management"]
+  }, {
+    title: "EV Charging Station Slot Booking Website",
+    description: "Built a user-friendly website that enables EV users to book charging slots in advance, helping them avoid long queues and save time. The system enhances convenience and efficiency in EV station usage.",
+    technologies: ["Web Development", "Booking System", "User Experience"]
+  }, {
+    title: "On-Road Assistance Platform",
+    description: "Created a real-time service platform where users can request nearby assistance such as fuel delivery or mechanical support. Integrated location-based services for faster response and convenience.",
+    technologies: ["Location Services", "Real-time Systems", "Mobile Development"]
+  }];
+  const experiences = [{
+    company: "Ziuke Infotech",
+    position: "Django Developer Intern",
+    duration: "Jan 2025 - Feb 2025",
+    location: "Thrissur",
+    responsibilities: ["Developed scalable web applications using Django", "Worked with Django's Model-View-Template architecture for efficient web development"]
+  }, {
+    company: "Gem Advertising and Publications",
+    position: "IT Support",
+    duration: "Mar 2024",
+    location: "Qatar",
+    responsibilities: ["Provided support to the IT team, primarily in design, printing, networking, and website development", "Developed a comprehensive understanding of international markets and business practices"]
+  }];
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
@@ -90,10 +69,7 @@ const Index = () => {
               <Mail className="mr-2 h-5 w-5" />
               Get In Touch
             </Button>
-            <Button variant="outline" size="lg" onClick={() => scrollToSection('projects')} className="text-lg px-8 py-6">
-              <Code className="mr-2 h-5 w-5" />
-              View Projects
-            </Button>
+            
           </div>
           <div className="flex justify-center space-x-6">
             <a href="mailto:austinsiju123@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
@@ -167,20 +143,16 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-12">Technical Skills</h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Object.entries(skills).map(([category, skillList]) => (
-                <Card key={category} className="hover:shadow-lg transition-shadow">
+              {Object.entries(skills).map(([category, skillList]) => <Card key={category} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-lg">{category}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
-                      {skillList.map((skill) => (
-                        <Badge key={skill} variant="outline">{skill}</Badge>
-                      ))}
+                      {skillList.map(skill => <Badge key={skill} variant="outline">{skill}</Badge>)}
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
             <div className="mt-12 text-center">
               <h3 className="text-xl font-semibold mb-4">Languages</h3>
@@ -202,8 +174,7 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project) => (
-                <Card key={project.title} className="hover:shadow-lg transition-shadow">
+              {projects.map(project => <Card key={project.title} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-xl">{project.title}</CardTitle>
                   </CardHeader>
@@ -212,13 +183,10 @@ const Index = () => {
                       {project.description}
                     </CardDescription>
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                      ))}
+                      {project.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -230,8 +198,7 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-12">Work Experience</h2>
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              {experiences.map((exp) => (
-                <Card key={`${exp.company}-${exp.duration}`} className="hover:shadow-lg transition-shadow">
+              {experiences.map(exp => <Card key={`${exp.company}-${exp.duration}`} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div>
@@ -244,16 +211,13 @@ const Index = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {exp.responsibilities.map((responsibility, index) => (
-                        <li key={index} className="flex items-start">
+                      {exp.responsibilities.map((responsibility, index) => <li key={index} className="flex items-start">
                           <Briefcase className="mr-2 h-4 w-4 mt-1 text-primary flex-shrink-0" />
                           <span>{responsibility}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -300,8 +264,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
